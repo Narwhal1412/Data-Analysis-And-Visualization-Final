@@ -3,7 +3,7 @@ when:
  - event: push
    branch: giaHuy
    path:
-    include: ['giaHuy/test.ipynb']
+    include: ['giaHuy/test.ipynb', .woodpecker/giaHuy.yaml]
 
 steps:
   # Test run
