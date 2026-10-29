@@ -13,4 +13,4 @@ steps:
     - pip install nbformat nbconvert ipykernel
     - python build_test.py
     - jupyter nbconvert --to notebook --execute build/final.ipynb --output final_executed.ipynb
-    - jupyter nbconvert --to html --execute final_executed.ipynb
+    - jupyter nbconvert --to html --execute build/final_executed.ipynb

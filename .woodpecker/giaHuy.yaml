@@ -2,7 +2,7 @@
 when:
  - event: [push, pull_request]
   # Allow this to run on the personal branch, and when PRing to main
-   branch: [main,giaHuy]
+   branch: [main, giaHuy]
    path:
     include: ['giaHuy/test.ipynb', '.woodpecker/giaHuy.yaml']
 
