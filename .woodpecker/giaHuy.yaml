@@ -1,0 +1,14 @@
+# This runs only when there are changes
+when:
+ - event: push
+   branch: main
+   path:
+    include: ['giaHuy/test.ipynb']
+
+steps:
+  # Test run
+ - name: test-run
+   image: python:3.12-slim
+   commands:
+    - pip install nbformat nbconvert ipykernel
+    - jupyter nbconvert --to notebook --execute giaHuy/test.ipynb --output-dir /tmp/out 
