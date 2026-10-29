@@ -1,0 +1,16 @@
+# Must wait for these workflows to finish
+depends_on: 
+ - giaHuy
+
+when:
+ - event: [pull_request]
+   branch: main
+
+steps:
+ - name: build-final
+   image: python:3.12-slim
+   commands:
+    - pip install nbformat nbconvert ipykernel
+    - python build_test.py
+    - jupyter nbconvert --to notebook --execute build/final.ipynb --output final_executed.ipynb
+    - jupyter nbconvert --to html --execute final_executed.ipynb
