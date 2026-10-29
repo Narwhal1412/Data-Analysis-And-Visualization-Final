@@ -1,9 +1,9 @@
 # This runs only when there are changes
 when:
  - event: push
-   branch: main
+   branch: giaHuy
    path:
-    include: ['giaHuy/test.ipynb']
+    include: ['giaHuy/test.ipynb', .woodpecker/giaHuy.yaml]
 
 steps:
   # Test run
@@ -11,4 +11,4 @@ steps:
    image: python:3.12-slim
    commands:
     - pip install nbformat nbconvert ipykernel
-    - jupyter nbconvert --to notebook --execute giaHuy/test.ipynb
+    - jupyter nbconvert --to notebook --execute giaHuy/test.ipynb --output-dir /tmp/out
