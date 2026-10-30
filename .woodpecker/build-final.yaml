@@ -5,7 +5,7 @@ when:
 
 steps:
  - name: build-final
-   image: ghcr.io/narwhal1412/da-python-3_12-slim:b94f98d
+   image: ghcr.io/narwhal1412/da-python-3_12-slim
    commands:
     - python build_test.py
     - jupyter nbconvert --to notebook --execute build/final.ipynb --output final_executed.ipynb
