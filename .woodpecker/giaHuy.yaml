@@ -1,8 +1,8 @@
 # This runs only when there are changes
 when:
- - event: [push, pull_request]
-  # Allow this to run on the personal branch, and when PRing to main
-   branch: [main, giaHuy]
+  # This runs whenever there is a pull request on main
+ - event: pull_request
+   branch: main
    path:
     include: ['giaHuy/test.ipynb', '.woodpecker/giaHuy.yaml']
 
