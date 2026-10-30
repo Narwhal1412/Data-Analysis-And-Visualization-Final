@@ -1,16 +1,30 @@
-# Must wait for these workflows to finish
-depends_on: 
- - giaHuy
-
 when:
- - event: [pull_request]
+  # Whenever there is a successfull merge request to main
+ - event: push
    branch: main
 
 steps:
  - name: build-final
-   image: python:3.12-slim
+   image: ghcr.io/narwhal1412/da-python-3_12-slim
    commands:
-    - pip install nbformat nbconvert ipykernel
-    - python build_test.py
-    - jupyter nbconvert --to notebook --execute build/final.ipynb --output final_executed.ipynb
-    - jupyter nbconvert --to html --execute build/final_executed.ipynb
+    - python build_merge.py
+    - jupyter nbconvert --to notebook --execute build/final.ipynb --output 524H0158_524H0074_524H0075.ipynb
+    - jupyter nbconvert --to html build/524H0158_524H0074_524H0075.ipynb
+
+ - name: publish
+   image: alpine/git
+   environment: 
+    DEPLOY_KEY:
+     from_secret: deploy_key
+   commands:
+    - mkdir -p ~/.ssh
+    - echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+    - ssh-keyscan github.com >> ~/.ssh/known_hosts
+    - git config user.email "ci@hatmaoto.uk"
+    - git config user.username "Woodpecker CI"
+    - git remote set-url origin git@github.com:Narwhal1412/Data-Analysis-And-Visualization-Final.git
+    - git checkout --orphan build-output
+    - git rm -rf --cached . -q
+    - git add -f build/524H0158_524H0074_524H0075.ipynb build/524H0158_524H0074_524H0075.html
+    - git commit -m "Auto-build [CI SKIP]"
+    - git push --force origin build-output
