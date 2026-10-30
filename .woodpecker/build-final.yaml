@@ -8,7 +8,7 @@ steps:
    image: ghcr.io/narwhal1412/da-python-3_12-slim
    commands:
     - python build_merge.py
-    - jupyter nbconvert --to notebook --execute build/final.ipynb --output 524H0158_524H0074_524H0075.ipynb
+    - jupyter nbconvert --to notebook --execute build/final.ipynb --output build/524H0158_524H0074_524H0075.ipynb
     - jupyter nbconvert --to html build/524H0158_524H0074_524H0075.ipynb
 
  - name: publish
