@@ -1,0 +1,15 @@
+# This runs only when there are changes
+when:
+  # This runs whenever there is a pull request on main
+ - event: pull_request
+   branch: main
+   path:
+    include: ['anhTuan/test.ipynb', '.woodpecker/anhTuan.yaml']
+
+steps:
+  # Test run
+ - name: test-run
+   image: python:3.12-slim
+   commands:
+    - pip install nbformat nbconvert ipykernel
+    - jupyter nbconvert --to notebook --execute anhTuan/test.ipynb --output-dir /tmp/out
