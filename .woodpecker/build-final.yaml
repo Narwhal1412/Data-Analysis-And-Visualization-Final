@@ -1,7 +1,3 @@
-# Must wait for these workflows to finish
-depends_on: 
- - giaHuy
-
 when:
  - event: push
    branch: main
