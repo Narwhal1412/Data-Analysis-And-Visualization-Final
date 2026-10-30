@@ -1,4 +1,5 @@
 when:
+  # Whenever there is a successfull merge request to main
  - event: push
    branch: main
 
