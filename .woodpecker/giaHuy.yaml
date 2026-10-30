@@ -4,7 +4,7 @@ when:
  - event: pull_request
    branch: main
    path:
-    include: ['giaHuy/524H0158.ipynb', '.woodpecker/giaHuy.yaml']
+    include: ['.woodpecker/giaHuy.yaml']
 
 steps:
   # Test run
