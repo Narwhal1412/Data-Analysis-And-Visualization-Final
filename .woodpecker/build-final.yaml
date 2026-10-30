@@ -5,9 +5,8 @@ when:
 
 steps:
  - name: build-final
-   image: python:3.12-slim
+   image: ghcr.io/narwhal1412/da-python-3_12-slim:b94f98d
    commands:
-    - pip install nbformat nbconvert ipykernel
     - python build_test.py
     - jupyter nbconvert --to notebook --execute build/final.ipynb --output final_executed.ipynb
     - jupyter nbconvert --to html build/final_executed.ipynb
