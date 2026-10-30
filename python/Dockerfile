@@ -5,4 +5,4 @@ FROM python:3.12-slim
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Run the uv to install dependencies directly onto the system environtment
-RUN uv pip install --system --no-cache -r requirements
+RUN uv pip install --system --no-cache -r requirements.txt
