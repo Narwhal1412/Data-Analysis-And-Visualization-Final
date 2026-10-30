@@ -9,6 +9,6 @@ when:
 steps:
   # Test run
  - name: test-run
-   image: ghcr.io/narwhal1412/da-python-3_12-slim:b94f98d
+   image: ghcr.io/narwhal1412/da-python-3_12-slim
    commands:
     - jupyter nbconvert --to notebook --execute giaViet/test.ipynb --output-dir /tmp/out
