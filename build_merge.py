@@ -7,7 +7,7 @@ import nbformat
 folder_order = ["giaHuy","anhTuan","giaViet"]
 
 # Go down one folder deep, and get all the notebooks with the glob /.
-files = glob.glob("*/test.ipynb")
+files = glob.glob("*/524H.ipynb")
 # Lambda function to split into a list of strings, from giaHuy/test.ipynb -> ["giaHuy","test.ipynb"],
 # And grabs the first item from the list which is the folder
 # Then they'll be indexed(From custom order) and sorted.
