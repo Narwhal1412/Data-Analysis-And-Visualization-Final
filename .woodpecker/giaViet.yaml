@@ -4,7 +4,11 @@ when:
  - event: pull_request
    branch: main
    path:
-    include: ['giaViet/524H0075.ipynb', '.woodpecker/giaViet.yaml']
+    include: 
+    - 'giaViet/**'
+    - 'giaHuy/**'
+    - 'anhTuan/**'
+    - '.woodpecker/**'
 
 steps:
   # Test run

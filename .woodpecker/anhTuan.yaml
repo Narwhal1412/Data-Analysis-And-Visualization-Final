@@ -4,7 +4,11 @@ when:
  - event: pull_request
    branch: main
    path:
-    include: ['anhTuan/524H0074.ipynb', '.woodpecker/anhTuan.yaml']
+    include: 
+    - 'giaViet/**'
+    - 'giaHuy/**'
+    - 'anhTuan/**'
+    - '.woodpecker/**'
 
 steps:
   # Test run
