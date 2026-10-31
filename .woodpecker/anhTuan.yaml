@@ -4,8 +4,11 @@ when:
  - event: pull_request
    branch: main
    path:
-    include: ['.woodpecker/anhTuan.yaml']
-
+    include: 
+    - 'giaViet/**'
+    - 'giaHuy/**'
+    - 'anhTuan/**'
+    - '.woodpecker/**'
 steps:
   # Test run
  - name: test-run
