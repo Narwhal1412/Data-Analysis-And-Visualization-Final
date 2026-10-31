@@ -4,11 +4,15 @@ when:
  - event: pull_request
    branch: main
    path:
-    include: ['giaViet/524H0075.ipynb', '.woodpecker/giaViet.yaml']
+    include: 
+    - 'giaViet/**'
+    - 'giaHuy/**'
+    - 'anhTuan/**'
+    - '.woodpecker/**'
 
 steps:
   # Test run
  - name: test-run
-   image: ghcr.io/narwhal1412/da-python-3_12-slim
+   image: ghcr.io/narwhal1412/da-python-3_12-slim:latest
    commands:
     - jupyter nbconvert --to notebook --execute giaViet/524H0075.ipynb --output-dir /tmp/out
