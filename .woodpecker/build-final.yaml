@@ -5,7 +5,7 @@ when:
 
 steps:
  - name: build-final
-   image: ghcr.io/narwhal1412/da-python-3_12-slim
+   image: ghcr.io/narwhal1412/da-python-3_12-slim:latest
    commands:
     - python build_merge.py
     - jupyter nbconvert --to notebook --execute build/final.ipynb --output 524H0158_524H0074_524H0075.ipynb
@@ -20,11 +20,11 @@ steps:
     - mkdir -p ~/.ssh
     - echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
     - ssh-keyscan github.com >> ~/.ssh/known_hosts
-    - git config user.email "ci@hatmaoto.uk"
-    - git config user.username "Woodpecker CI"
+    - git config --global user.email "ci@hatmaoto.uk"
+    - git config --global user.username "Woodpecker CI"
     - git remote set-url origin git@github.com:Narwhal1412/Data-Analysis-And-Visualization-Final.git
     - git checkout --orphan build-output
     - git rm -rf --cached . -q
     - git add -f build/524H0158_524H0074_524H0075.ipynb build/524H0158_524H0074_524H0075.html
-    - git commit -m "Auto-build [CI SKIP]"
+    - git commit --author="Woodpecker CI <ci@hatamoto.uk>" -m "Auto-build [CI SKIP]"
     - git push --force origin build-output
