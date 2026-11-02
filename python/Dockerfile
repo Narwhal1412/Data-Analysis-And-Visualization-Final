@@ -7,5 +7,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 # Copy the requirements.txt for Docker build
 COPY python/requirements.txt requirements.txt
 
+# Show the current directory
+RUN ls
+
 # Run the uv to install dependencies directly onto the system environtment
 RUN uv pip install --system --no-cache -r requirements.txt
