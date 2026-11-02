@@ -22,5 +22,5 @@ for f in files:
     out.cells += nbformat.read(f, as_version=4).cells # type:ignore
 
 os.makedirs("build",exist_ok=True) # Makes absolutely sure the folder build exists.
-# Then write to build/final.ipynb
-nbformat.write(out, "build/final.ipynb")
+# Then write to final.ipynb
+nbformat.write(out, "final.ipynb")
